@@ -29,14 +29,14 @@ The project is built on the **Raspberry Pi 4 Model B**, running **Raspberry Pi O
 - **3D Printed Custom Case** to house components
 - **Connectivity Module** for internet access
 - **Cooling (Heat sinks/Fan)** for temperature regulation
-- **Straps/Harness** for stable mounting on a user's body
+- **Straps/Harness OR Gopro stick** for stable mounting on a user's body or on another stable platform
 
 ### Software Requirements:
 - **Camera Drivers** for Camera Module 2
 - **Python Libraries** for GPIO and camera control (`picamera`)
 - **Web Server Software** (Nginx)
-- **Gallery Software** (Lychee, PiGallery2, or PhotoPrism)
-- **Image Processing Software** (ImageMagick, OpenCV)
+- **Gallery Software** (PiGallery2)
+- **Image Processing Software** (ImageMagick)
 
 ## Setup Guide
 
@@ -46,23 +46,25 @@ The project is built on the **Raspberry Pi 4 Model B**, running **Raspberry Pi O
 
 ### 2. Button Integration
 - **Wire Tactile Buttons** to the Raspberry Pi’s GPIO pins.
-- **Write Python Scripts** for button functionality:
+- **Write Python Scripts** for button functionality (3 buttons):
   - **Picture Button**: Capture images.
   - **Video Button**: Record/stop video.
   - **Power Button**: Power on/off the system.
 
 ### 3. Web Server Setup
-- **Install a Web Server** (e.g., Nginx) to host media files.
-- **Gallery Software**: Install a photo gallery software (Lychee, PiGallery2, or PhotoPrism) for media management.
+- **Install a Web Server/reverse proxy** (e.g., Nginx) to host media files.
+- **Gallery Software**: Install a photo gallery software (PiGallery2) for media management.
 - **Upload Media**: Configure the system to upload images to an external server for remote access.
 
 ### 4. Portable Camera Build
 - **Design & Print the Case**: Use a 3D printer to create a custom case for the Raspberry Pi and Camera Module.
-- **Attach the Camera to a Harness**: Ensure the camera is stable and comfortable to wear.
+- **Attach the Camera to a Harness/Gopro stick**: Ensure the camera is stable and comfortable to wear.
 
 ### 5. Additional Enhancements
 - **Cooling System**: Install a heat sink for temperature regulation.
 - **Time of Flight (ToF) Sensor**: Optionally, add a ToF sensor to measure the distance between the camera and objects.
+- **Cloud Storage**: If the system gains popularity, we might switch to cloud storage for media backups.
+- **Screen**: Install a screen to the Raspberry Pi, so we can make the camera more realistic.
 
 ## Security & Authentication
 
@@ -85,17 +87,12 @@ The project is built on the **Raspberry Pi 4 Model B**, running **Raspberry Pi O
 
 - **Storage Options**: We chose an **SD card** for local storage as it provides sufficient space and is cost-effective. If necessary, cloud storage can be considered in the future.
 - **Cooling**: We decided to use a **heat sink** for cooling, which is efficient and doesn’t add moving parts that could malfunction.
-- **Web Server**: We selected **Nginx** as it is lightweight and works well with the Raspberry Pi’s hardware constraints.
-
-## Future Enhancements
-
-- **Cloud Storage**: If the system gains popularity, we might switch to cloud storage for media backups.
-- **Time of Flight (ToF) Sensor**: To measure distances for better picture quality.
+- **Web Server/reverse proxy**: We selected **Nginx** as it is lightweight and works well with the Raspberry Pi’s hardware constraints.
 
 ## Timeline
 
-- **Week 1**: Setup the Raspberry Pi, Camera Module, and buttons. Start the web server.
-- **Week 2**: Test button functionality, finalize the server, and begin 3D printing the case.
+- **Week 1**: Set up the Raspberry Pi, and Camera Module and start connecting the jump wires to the breadboard and the buttons. Start the web server.
+- **Week 2**: Install buttons and test their functionality, finalize the server, and begin 3D printing the case.
 - **Week 3**: Finalize the case, assemble the camera, and complete the project presentation.
 
 ## Demo Plan
