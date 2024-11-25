@@ -27,8 +27,6 @@ The project is built on the **Raspberry Pi 4 Model B**, running **Raspberry Pi O
 - **Jumper Wires & Breadboard** for GPIO connections
 - **Portable Power Source** for camera mobility
 - **3D Printed Custom Case** to house components
-- **Connectivity Module** for internet access
-- **Cooling (Heat sinks/Fan)** for temperature regulation
 - **Straps/Harness OR Gopro stick** for stable mounting on a user's body or on another stable platform
 
 ### Software Requirements:
