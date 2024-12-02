@@ -1,0 +1,12 @@
+Flash: Go to the raspberry Pi Official website 
+Go to the Raspberry Pi Imager page 
+Pick your computer OS (Windows, MacOS, Ubuntu and even Terminal) 
+Download 
+Open the Downloaded file and accept all the terms 
+Raspberry pi Imager should now be downloaded and available to use 
+Click on it, and accept that it should make modifications on your computer 
+Insert an SD card using an adapter or by directly inserting it to your computer 
+First: Pick your raspberry pi device 
+10- Second: Pick your OS system (64-bit, 32-bit, legacy 32-bit, etc...). We took the Legacy 32-bit since it comes with the picamera Library 
+ Thirdly: pick your SD card storage 
+Flash
