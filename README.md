@@ -34,7 +34,6 @@ The project is built on the **Raspberry Pi 4 Model B**, running **Raspberry Pi O
 - **Python Libraries** for GPIO and camera control (`picamera`)
 - **Web Server Software** (Nginx)
 - **Gallery Software** (PiGallery2)
-- **Image Processing Software** (ImageMagick)
 
 ## Setup Guide
 
@@ -73,7 +72,7 @@ The project is built on the **Raspberry Pi 4 Model B**, running **Raspberry Pi O
 
 ## Media Customization
 
-- **ImageMagick**: For applying filters and editing images from the command line.
+- **ImageMagick**: For applying filters and editing images from the command line(optional)
 - **OpenCV**: For advanced processing, such as face recognition and object detection (optional).
 
 ## Power Solutions
