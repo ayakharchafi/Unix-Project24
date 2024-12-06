@@ -16,7 +16,7 @@ def get_timestamp():
 
 def take_picture():
     timestamp = get_timestamp()
-    file_path = f"/home/aya/Desktop/img_{timestamp}.jpg"
+    file_path = f"/home/aya/Desktop/PiPic/img_{timestamp}.jpg"
     camera.capture(file_path)
     
 deux.when_pressed = take_picture
