@@ -1,56 +1,72 @@
-from gpiozero import Button
-from picamera import PiCamera
-from signal import pause
-from datetime import datetime
-import time
+from gpiozero import Button  # Imports the Button class from gpiozero library to work with GPIO button inputs.
+from picamera import PiCamera  # Imports the PiCamera class for camera operations on Raspberry Pi.
+from signal import pause  # Imports `pause` to keep the program running and listening for button inputs.
+from datetime import datetime  # Imports the datetime class to get the current date and time for timestamps.
+import time  # Imports the time module for time-related functions like measuring time intervals.
 
+# Initializes button objects for GPIO pin 2 and GPIO pin 3.
+button = Button(2)  # The button connected to GPIO pin 2 will be used for recording functionality.
+deux = Button(3)  # The button connected to GPIO pin 3 will be used for taking pictures.
 
-button = Button(2)
-deux = Button(3)
 def get_timestamp():
+    """
+    Returns a string of the current timestamp in the format "YYYY-MM-DD_HH-MM-SS".
+    Used to create unique filenames for captured images and videos.
+    """
     return datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
-#Picture
+# Picture Functionality
 def take_picture():
-     timestamp = get_timestamp()
-    file_path = f"/home/aya/Desktop/img_{timestamp}.jpg"
-    camera.capture(file_path)
-    print("took picture")
-    
-deux.when_pressed = take_picture
+    """
+    Captures a picture using the PiCamera and saves it with a unique filename.
+    """
+    timestamp = get_timestamp()  # Gets the current timestamp for the filename.
+    file_path = f"/home/aya/Desktop/img_{timestamp}.jpg"  # Constructs the file path for the image.
+    camera.capture(file_path)  # Captures the image and saves it to the specified file path.
+    print("took picture")  # Prints a message to indicate that a picture was taken.
 
-#Record
-recording = False
-clicks = 0
-last_click_time = 0
+deux.when_pressed = take_picture  # Configures the `deux` button to call `take_picture` when pressed.
+
+# Video Recording Functionality
+recording = False  # Boolean flag to track whether recording is in progress.
+clicks = 0  # Counter for button clicks.
+last_click_time = 0  # Tracks the time of the last button press to detect double-clicks.
 
 def toggle_recording():
-    global recording
-    recording = not recording
+    """
+    Starts or stops video recording based on the current recording state.
+    """
+    global recording  # Indicates that the `recording` variable is defined globally.
+    recording = not recording  # Toggles the recording state (True to False or False to True).
     if recording:
-        timestamp = get_timestamp()
-        video_file = f"/home/aya/Desktop/video_{timestamp}.h264"
-        print(f"Recording: {video_file}")
-        camera.start_recording(video_file)
+        timestamp = get_timestamp()  # Gets the current timestamp for the video filename.
+        video_file = f"/home/aya/Desktop/video_{timestamp}.h264"  # Constructs the file path for the video.
+        print(f"Recording: {video_file}")  # Prints a message indicating that recording has started.
+        camera.start_recording(video_file)  # Starts recording a video to the specified file.
     else:
-        print("Not recording")
-        camera.stop_recording()  
+        print("Not recording")  # Prints a message indicating that recording has stopped.
+        camera.stop_recording()  # Stops the video recording.
 
 def button_clicked():
-    global clicks, last_click_time
-    current_time = time.time()
-    
+    """
+    Detects double-clicks on the button to toggle recording.
+    """
+    global clicks, last_click_time  # Indicates that `clicks` and `last_click_time` are global variables.
+    current_time = time.time()  # Gets the current time in seconds.
+
+    # Checks if the time between consecutive clicks is within 0.5 seconds (double-click detection).
     if current_time - last_click_time <= 0.5:
-        clicks += 1
+        clicks += 1  # Increments the click counter if the time condition is met.
     else:
-        clicks = 1
-    
-    last_click_time = current_time
-    
-    if clicks == 2:
-        toggle_recording()
-        clicks = 0
-        
-button.when_pressed = button_clicked
-print("Ready for double click")
-pause()
+        clicks = 1  # Resets the click counter if too much time has passed.
+
+    last_click_time = current_time  # Updates the time of the last click.
+
+    if clicks == 2:  # If two clicks are detected in quick succession:
+        toggle_recording()  # Toggles the recording state.
+        clicks = 0  # Resets the click counter.
+
+button.when_pressed = button_clicked  # Configures the `button` to call `button_clicked` when pressed.
+print("Ready for double click")  # Prints a message indicating that the system is ready for double-clicks.
+pause()  # Keeps the program running and listening for button events.
+
