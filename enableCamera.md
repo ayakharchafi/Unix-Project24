@@ -1,21 +1,58 @@
-#### Enable camera
-``` bash 
-1- Flash: Go to the raspberry Pi Official website
-2- Go to the raspberry pi imager page
-3- Pick your computer OS (Windoes, MacOS, Ubuntu and even Terminal)
-4- Download
-5- Open the Downloaded file and accept all the terms
-6- Raspberry pi Imager should now be downloaded and available to use 
-7- Click on it, and accept that it should make modifications on your computer
-8- Insert an SD card using an adapter or by directly inserting it to your computer
-9- First:Pick your raaspberry pi devive
-10- Second: Pick your OS system (64-bit, 32-bit, legacy 32-bit, etc...). 
-    We took the Legacy 32-bit since it comes with the picamera Library
-11-Thirdly: pick your SD card storage
-12- Flash
----------Enabling the camera--------------
-1- Go to the terminal: sudo raspi-config
-2-On the Rspberry Pi configuration tool, select interface options
-3- select legacy camera and enable it
-4- reboot (sudo reboot or using the user interface)
-```
+
+### Steps to Enable the Camera on Raspberry Pi
+Flashing Raspberry Pi OS onto an SD Card
+Visit the Raspberry Pi Official Website:
+
+Navigate to the Raspberry Pi Official Website.
+Go to the Raspberry Pi Imager Page:
+
+Locate the Raspberry Pi Imager page to download the OS flashing tool.
+Choose Your Computer's Operating System:
+
+Options include Windows, MacOS, Ubuntu, or even the Terminal version.
+Download Raspberry Pi Imager:
+
+Click on the appropriate version for your computer and download it.
+Install Raspberry Pi Imager:
+
+Open the downloaded file and accept the terms of installation.
+Launch Raspberry Pi Imager:
+
+After installation, open the Raspberry Pi Imager and allow it to make necessary modifications to your computer.
+Insert the SD Card:
+
+Use an adapter or directly insert the SD card into your computer.
+Select the Raspberry Pi Device:
+
+Choose the specific Raspberry Pi model you'll be using.
+Pick an OS:
+
+Select an operating system for your Raspberry Pi.
+For camera support:
+Use Legacy 32-bit OS, which includes the picamera library by default.
+Choose SD Card Storage:
+
+Select the SD card you inserted.
+Flash the OS:
+
+Click the "Flash" button to write the chosen OS to the SD card.
+Enable the Camera
+Open the Terminal:
+
+Launch the terminal on the Raspberry Pi and enter:
+bash
+sudo raspi-config
+Access Interface Options:
+
+In the Raspberry Pi Configuration Tool, navigate to Interface Options.
+Enable the Legacy Camera:
+
+Select Legacy Camera and choose to enable it.
+Reboot the System:
+
+Reboot the Raspberry Pi for the changes to take effect:
+bash
+Copier le code
+sudo reboot
+Alternatively, use the graphical user interface (GUI) to restart the Raspberry Pi.
+Your Raspberry Pi camera is now enabled and ready for use! You can test it by running a simple script or using raspistill commands.
