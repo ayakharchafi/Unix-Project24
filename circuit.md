@@ -1,11 +1,12 @@
-###Circuit Description
-##1. First Button Connection
+### Circuit Description
+## 1. First Button Connection
 Connections:
 
 Connect the positive terminal of the button to GP2 (General Purpose Pin 2, 3rd physical pin on the GPIO header).
 Connect the negative terminal of the button to GND (Ground pin next to GP2, 6th physical pin).
 Diagram:
 Raspberry Pi Pins
+
     GP   GND
     O     O           
     X     O    <- Button 1 connected here
@@ -13,13 +14,14 @@ Raspberry Pi Pins
     O     O
     O     O
     
-##2. Second Button Connection
+## 2. Second Button Connection
 Connections:
 
 Connect the positive terminal of the second button to GP3 (General Purpose Pin 3, 5th physical pin).
 Connect the negative terminal of the button to GND (7th physical pin).
 Diagram:
 Raspberry Pi Pins
+
     GP   GND
     O     O           
     O     O
@@ -29,12 +31,13 @@ Raspberry Pi Pins
     O     O
     O     X    <- GND connection
 
-##3. Both Buttons Connected
+## 3. Both Buttons Connected
 Configuration:
 
 Button 1 and Button 2 are connected to separate GPIO pins, sharing the same ground pins. This configuration avoids interference between the two buttons and allows the Raspberry Pi to detect presses independently.
 Diagram:
 Raspberry Pi Pins
+
     GP   GND
     O     O           
     X     O    <- Button 1
@@ -44,7 +47,7 @@ Raspberry Pi Pins
     O     O
     O     X    <- Additional GND connection if needed
 
-##Additional Notes
+## Additional Notes
 GPIO Pin Orientation:
 
 Ensure the orientation of your Raspberry Pi matches the diagram (GPIO pins are on the top-left side when viewed from above).
